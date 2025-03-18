@@ -31,6 +31,7 @@ import { Nowpayments } from '@gitroom/nestjs-libraries/crypto/nowpayments';
 import { WebhookController } from '@gitroom/backend/api/routes/webhooks.controller';
 import { SignatureController } from '@gitroom/backend/api/routes/signature.controller';
 import { AutopostController } from '@gitroom/backend/api/routes/autopost.controller';
+import { ResearchController } from '@gitroom/backend/api/routes/research.controller';
 
 const authenticatedController = [
   UsersController,
@@ -48,6 +49,7 @@ const authenticatedController = [
   WebhookController,
   SignatureController,
   AutopostController,
+  ResearchController,
 ];
 @Module({
   imports: [UploadModule],

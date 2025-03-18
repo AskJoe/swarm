@@ -21,6 +21,7 @@ import { Calendar } from './calendar';
 import { useDrag, useDrop } from 'react-dnd';
 import { DNDProvider } from '@gitroom/frontend/components/launches/helpers/dnd.provider';
 import { GeneratorComponent } from './generator/generator';
+import { ResearchComponent } from './research/research';
 import { useVariables } from '@gitroom/react/helpers/variable.context';
 import { NewPost } from '@gitroom/frontend/components/launches/new.post';
 
@@ -442,6 +443,9 @@ export const LaunchesComponent = () => {
                   {sortedIntegrations?.length > 0 &&
                     user?.tier?.ai &&
                     billingEnabled && <GeneratorComponent />}
+                  {sortedIntegrations?.length > 0 &&
+                    user?.tier?.ai &&
+                    billingEnabled && <ResearchComponent />}
                 </div>
               </div>
               <div className="flex-1 flex flex-col gap-[14px]">
@@ -449,6 +453,21 @@ export const LaunchesComponent = () => {
                 <Calendar />
               </div>
             </div>
+          </div>
+          <div className="flex flex-col lg:flex-row gap-[24px] md:gap-[12px]">
+            <div className="md:w-[calc(33.33%-8px)]">
+              <NewPost />
+            </div>
+            {user?.tier?.ai && billingEnabled && (
+              <div className="md:w-[calc(33.33%-8px)]">
+                <GeneratorComponent />
+              </div>
+            )}
+            {user?.tier?.ai && billingEnabled && (
+              <div className="md:w-[calc(33.33%-8px)]">
+                <ResearchComponent />
+              </div>
+            )}
           </div>
         </div>
       </CalendarWeekProvider>
